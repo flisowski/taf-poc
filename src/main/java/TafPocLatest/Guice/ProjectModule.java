@@ -1,8 +1,9 @@
-package Cucumber_Project.Guice;
+package TafPocLatest.Guice;
 
-import Cucumber_Project.Utilities.PropertiesLoader;
-import Cucumber_Project.WebDriver.DriverFactory;
+import TafPocLatest.Utilities.PropertiesLoader;
+import TafPocLatest.WebDriver.DriverFactory;
 import com.google.inject.AbstractModule;
+import com.google.inject.Scope;
 import com.google.inject.Scopes;
 import com.google.inject.name.Names;
 import cucumber.runtime.java.guice.ScenarioScoped;
@@ -21,7 +22,18 @@ public class ProjectModule extends AbstractModule {
             bind(WebDriver.class).toProvider(DriverFactory.class).in(ScenarioScoped.class);
         }
 
+        //        Alternative
+//                bind(DriverManager.class).toProvider(DriverFactory.class).in(Scopes.SINGLETON);
+        //        another
+        //        WebDriver driver = DriverManagerFactory.getManager("chrome").getDriver();
+        //        bind(WebDriver.class).to(driver.getClass()).in(ScenarioScoped.class);
+
         Names.bindProperties(binder(), propertiesLoader.getProperties());
     }
+
+//        @Provides
+//        public WebDriver getDriver(DriverManager driverManager) {
+//            return driverManager.getDriver();
+//        }
 
 }

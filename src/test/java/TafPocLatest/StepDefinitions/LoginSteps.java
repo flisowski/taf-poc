@@ -1,17 +1,19 @@
-package Cucumber_Project.StepDefinitions;
+package TafPocLatest.StepDefinitions;
 
-import java.util.concurrent.TimeUnit;
-import Cucumber_Project.Pages.AccountPage;
-import Cucumber_Project.Pages.HomePage;
-import Cucumber_Project.Pages.LoginPage;
+import TafPocLatest.Pages.AccountPage;
+import TafPocLatest.Pages.HomePage;
+import TafPocLatest.Pages.LoginPage;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import org.junit.Assert;
+
+import java.util.concurrent.TimeUnit;
 
 public class LoginSteps {
 
@@ -81,6 +83,18 @@ public class LoginSteps {
         String actual = driver.findElement(By.className("alert")).getText();
         Assert.assertEquals(exp_message, actual);
         driver.quit();
+    }
+
+    @Given("^I am on the search$")
+    public void search_page() throws Throwable {
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get(websiteUrl);
+    }
+
+    @When("^I type in search box$")
+    public void type_in_search() throws Throwable {
+        loginPage.typeSearch("kek");
+        loginPage.clickSubmit();
     }
 
 }

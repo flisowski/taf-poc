@@ -1,6 +1,6 @@
-package Cucumber_Project.WebDriver;
+package TafPocLatest.WebDriver;
 
-import Cucumber_Project.Utilities.PropertiesLoader;
+import TafPocLatest.Utilities.PropertiesLoader;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.name.Named;
@@ -60,6 +60,7 @@ public class DriverFactory implements Provider<WebDriver> {
             break;
         }
         return webDriver;
+
     }
 
 

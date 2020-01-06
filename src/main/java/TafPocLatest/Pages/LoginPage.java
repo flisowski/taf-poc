@@ -1,4 +1,4 @@
-package Cucumber_Project.Pages;
+package TafPocLatest.Pages;
 
 import com.google.inject.Inject;
 import org.openqa.selenium.WebDriver;
@@ -14,12 +14,21 @@ public class LoginPage extends BasePage {
     @FindBy(id = "passwd")
     private WebElement password;
 
-    @FindBy(id = "SubmitLogin")
+    @FindBy(id = "site-search-text")
+    private WebElement search;
+
+    @FindBy(id = "search-submit")
     private WebElement submitButton;
 
     @Inject
     public LoginPage(WebDriver driver){
         super(driver);
+    }
+
+    public void typeSearch(String text){
+        search.clear();
+        search.sendKeys(text);
+        submitButton.click();
     }
 
     public void setEmail(String text){

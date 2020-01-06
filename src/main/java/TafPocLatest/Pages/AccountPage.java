@@ -1,4 +1,4 @@
-package Cucumber_Project.Pages;
+package TafPocLatest.Pages;
 
 
 import com.google.inject.Inject;

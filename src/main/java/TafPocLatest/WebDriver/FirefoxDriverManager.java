@@ -1,4 +1,4 @@
-package Cucumber_Project.WebDriver;
+package TafPocLatest.WebDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
